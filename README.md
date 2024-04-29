@@ -1,6 +1,9 @@
 just 
 ```
-docker-compose up 
+docker-compose up --build 
+
+### to scale
+docker-compose up --build --scale backend=3
 ```
 and you are ready to go 
 the main branch is for local machine run and 
