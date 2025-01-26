@@ -16,6 +16,9 @@ PrashnaKhoj is a web application designed to help students connect with a vast d
   - [Installation](#installation)
   - [Usage](#usage)
   - [Docker Setup](#docker-setup)
+  - [Elasticsearch](#elasticsearch)
+    - [Pre-inserted Database](#pre-inserted-database)
+  - [Nginx](#nginx)
   - [Contributing](#contributing)
   - [License](#license)
   - [Detailed File Descriptions](#detailed-file-descriptions)
@@ -124,6 +127,24 @@ docker-compose up --build
 
 2. Open your browser and navigate to `http://localhost`.
 
+## Elasticsearch
+
+Elasticsearch is used to provide fast and efficient search capabilities. The Elasticsearch instance is pre-configured with a database containing questions. The Elasticsearch image is published to GitHub Container Registry (ghcr.io) - ghcr.io/ashim-stha/prashnakhoj:v1.
+
+
+### Pre-inserted Database
+
+The Elasticsearch image contains a pre-inserted database with questions. This ensures that the search functionality works out of the box without any additional setup.
+
+## Nginx
+
+Nginx is used as a reverse proxy server in this project. It serves the following purposes:
+
+**Reverse Proxy**: Nginx forwards client requests to the appropriate backend services (frontend and backend) based on the request URL.
+
+
+The Nginx configuration file `default.conf` sets up the reverse proxy rules for the frontend and backend services. This configuration ensures that requests to the root URL (`/`) are forwarded to the frontend service, while requests to `/api/` and `/ws/` are forwarded to the backend service.
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
@@ -142,4 +163,3 @@ This project is licensed under the MIT License.
 
 - **docker-compose.yml**: Docker Compose configuration file for setting up the frontend, backend, and Elasticsearch services.
 - **nginx/default.conf**: Nginx configuration file for reverse proxying requests to the frontend and backend services.
-

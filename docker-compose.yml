@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 
 services:
   elastic:
-    image: ghcr.io/prathamadh/prashnakhoj:v1
-       
+    image: ghcr.io/ashim-stha/prashnakhoj:v1
+
   backend:
     build: ./backend
     # volumes:
@@ -29,4 +29,3 @@ services:
       - ./nginx:/etc/nginx/conf.d
     depends_on:
       - frontend
- 
