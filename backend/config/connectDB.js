@@ -20,7 +20,7 @@ const queryData = async (keyword) => {
 
     return result.rows;
   } catch (e) {
-    console.error(e);
+    console.error("Database query error:", e.message);
     return e;
   }
 };
