@@ -7,13 +7,14 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/search",
+        `${backendUrl}`,
         { keyword: search },
         {
           headers: {
